@@ -2,118 +2,530 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SolveIT-AI builds intelligent digital solutions that turn ideas into impact.">
-  <title>SolveIT-AI | Innovate. Inspire. Solve.</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #080d19;
-      color: #f5f7ff;
-      line-height: 1.6;
-    }
-    nav {
-      display: flex; justify-content: space-between;
-      align-items: center; padding: 24px 8%;
-      border-bottom: 1px solid #202a3d;
-    }
-    .logo { font-size: 25px; font-weight: bold; color: #fff; }
-    .logo span { color: #55d6be; }
-    nav a { color: #c4cadd; text-decoration: none; margin-left: 22px; }
-    .hero {
-      padding: 110px 8% 90px;
-      text-align: center;
-      background: radial-gradient(ellipse at top, #183451, #080d19 65%);
-    }
-    .tag { color: #55d6be; letter-spacing: 3px; font-size: 13px; }
-    h1 { font-size: clamp(42px, 7vw, 76px); line-height: 1.1; margin: 22px 0; }
-    h1 span { color: #55d6be; }
-    .hero p { max-width: 680px; margin: 0 auto 30px; color: #b8c2d5; font-size: 18px; }
-    .btn {
-      display: inline-block; padding: 13px 25px;
-      background: #55d6be; color: #08121d;
-      border-radius: 7px; text-decoration: none; font-weight: bold;
-    }
-    section { padding: 75px 8%; }
-    .section-title { font-size: 34px; margin-bottom: 15px; }
-    .intro { color: #aebbd0; max-width: 680px; margin-bottom: 35px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 20px; }
-    .card {
-      background: #111b2c; border: 1px solid #26344a;
-      padding: 25px; border-radius: 12px;
-    }
-    .card h3 { color: #55d6be; margin-bottom: 10px; }
-    .card p { color: #b8c2d5; font-size: 15px; }
-    .about { background: #0d1524; }
-    footer {
-      padding: 30px 8%; text-align: center;
-      border-top: 1px solid #202a3d; color: #9aa9bd;
-      font-size: 13px;
-    }
-    @media(max-width:600px) {
-      nav { flex-direction: column; gap: 12px; }
-      nav a { margin: 0 8px; font-size: 13px; }
-      .hero { padding: 80px 6%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d18">
+<meta name="description" content="SolveIT-AI is an African-rooted technology and digital innovation company building practical solutions for real-world challenges.">
+<title>SolveIT-AI | Innovate. Inspire. Solve.</title>
+<style>
+:root {
+  --bg:#080d18;
+  --surface:#101a2b;
+  --surface2:#142238;
+  --text:#f4f7ff;
+  --muted:#9eacc3;
+  --teal:#55e0c1;
+  --blue:#579bff;
+  --line:rgba(155,183,220,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.65;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--teal);color:#07131c}
+#particles{
+  position:fixed;inset:0;width:100%;height:100%;
+  pointer-events:none;z-index:0;opacity:.45
+}
+.site{position:relative;z-index:1}
+.container{width:min(1160px,90%);margin:auto}
+.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(8,13,24,.82);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:24px
+}
+.logo{font-size:23px;font-weight:850;letter-spacing:-1px}
+.logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:13px;color:#c0cad9;transition:.25s}
+.nav-links a:hover{color:var(--teal)}
+.nav-cta,.primary-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:9px;background:linear-gradient(110deg,var(--teal),#8bf0d7);
+  color:#07131c;font-weight:800;border-radius:8px;
+  padding:12px 19px;border:0;cursor:pointer;
+  transition:transform .25s,box-shadow .25s
+}
+.nav-cta:hover,.primary-btn:hover{
+  transform:translateY(-3px);box-shadow:0 10px 35px #55e0c144
+}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:25px;cursor:pointer}
+.hero{
+  min-height:680px;display:flex;align-items:center;
+  position:relative;overflow:hidden;padding:100px 0 110px;
+  background:radial-gradient(ellipse at 78% 36%,#143c4a55,transparent 37%),
+  radial-gradient(ellipse at 20% 15%,#173b6c55,transparent 42%);
+}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:55px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid #55e0c144;background:#55e0c10d;
+  color:var(--teal);padding:8px 13px;border-radius:40px;
+  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase
+}
+.pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 14px var(--teal);animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35;transform:scale(.65)}}
+.hero h1{
+  font-size:clamp(43px,6.5vw,76px);line-height:1.07;
+  letter-spacing:-3.5px;margin:25px 0 22px;font-weight:850
+}
+.gradient-text{
+  background:linear-gradient(100deg,var(--teal),#83baff 75%);
+  color:transparent;background-clip:text;-webkit-background-clip:text
+}
+.hero-copy{max-width:610px;color:#adbad0;font-size:17px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.secondary-btn{
+  border:1px solid #8399b444;padding:12px 19px;border-radius:8px;
+  color:#e5edfa;font-weight:700;transition:.25s
+}
+.secondary-btn:hover{border-color:var(--teal);color:var(--teal)}
+.hero-note{margin-top:30px;color:#8292a9;font-size:12px;letter-spacing:.5px}
+.visual{
+  min-height:420px;position:relative;display:grid;place-items:center
+}
+.orbit{
+  position:absolute;border:1px solid #55e0c12b;border-radius:50%;
+  width:360px;height:360px;animation:rotate 24s linear infinite
+}
+.orbit.two{width:280px;height:280px;border-color:#579bff44;animation-duration:17s;animation-direction:reverse}
+.orbit:before,.orbit:after{
+  content:"";position:absolute;width:10px;height:10px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 20px var(--teal)
+}
+.orbit:before{top:42px;left:55px}
+.orbit:after{bottom:38px;right:45px;background:var(--blue);box-shadow:0 0 20px var(--blue)}
+@keyframes rotate{to{transform:rotate(360deg)}}
+.core{
+  width:190px;height:190px;border-radius:35%;
+  display:grid;place-items:center;text-align:center;
+  background:linear-gradient(145deg,#1c4552,#111d34 65%);
+  border:1px solid #55e0c177;
+  box-shadow:0 0 70px #55e0c126,inset 0 0 35px #55e0c11c;
+  transform:rotate(-8deg);animation:float 5s ease-in-out infinite
+}
+.core-inner{transform:rotate(8deg)}
+.core strong{display:block;font-size:34px;letter-spacing:-2px}
+.core small{color:var(--teal);letter-spacing:3px;font-size:10px;font-weight:800}
+@keyframes float{50%{transform:translateY(-15px) rotate(-4deg)}}
+.float-tag{
+  position:absolute;background:#111d30eF;border:1px solid var(--line);
+  border-radius:10px;padding:11px 15px;color:#dce8f8;
+  font-size:12px;box-shadow:0 12px 40px #0005;
+  animation:float 5s ease-in-out infinite
+}
+.tag-one{top:35px;right:0}
+.tag-two{bottom:45px;left:0;animation-delay:1s}
+.tag-three{bottom:5px;right:25px;animation-delay:2s}
+section{padding:95px 0}
+.section-head{max-width:700px;margin-bottom:42px}
+.kicker{color:var(--teal);font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase}
+.section-head h2{font-size:clamp(30px,4vw,47px);line-height:1.15;letter-spacing:-1.7px;margin:13px 0}
+.section-head p{color:var(--muted);font-size:15px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-panel{
+  padding:32px;border:1px solid var(--line);border-radius:17px;
+  background:linear-gradient(145deg,#12243a,#0d1524)
+}
+.about-panel h3{font-size:23px;margin-bottom:14px}
+.about-panel p{color:var(--muted);font-size:14px}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:24px}
+.value{padding:15px;background:#ffffff07;border:1px solid var(--line);border-radius:10px}
+.value strong{display:block;color:var(--teal);font-size:13px}
+.value small{color:#9eacc3;font-size:11px}
+.about-copy p{color:var(--muted);margin:15px 0;font-size:15px}
+.about-copy h3{font-size:26px;line-height:1.3}
+.hub{background:linear-gradient(180deg,transparent,#101a2b66,transparent)}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:27px}
+.filter{
+  border:1px solid var(--line);background:#101a2b;color:#b9c5d8;
+  padding:9px 15px;border-radius:30px;cursor:pointer;font-size:12px;
+  transition:.2s
+}
+.filter.active,.filter:hover{background:#55e0c11a;border-color:var(--teal);color:var(--teal)}
+.product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.product{
+  min-height:240px;padding:25px;border:1px solid var(--line);
+  border-radius:15px;background:linear-gradient(145deg,#121f32,#0d1523);
+  position:relative;overflow:hidden;transition:transform .3s,border-color .3s;
+  display:flex;flex-direction:column
+}
+.product:before{
+  content:"";position:absolute;width:150px;height:150px;
+  right:-80px;top:-80px;border-radius:50%;
+  background:#55e0c11a;filter:blur(8px);transition:.3s
+}
+.product:hover{transform:translateY(-7px);border-color:#55e0c177}
+.product:hover:before{transform:scale(1.8)}
+.product-icon{
+  width:43px;height:43px;border-radius:12px;
+  display:grid;place-items:center;background:#55e0c11a;
+  color:var(--teal);font-size:20px;margin-bottom:20px
+}
+.product .category{color:var(--teal);font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.product h3{font-size:21px;margin:5px 0}
+.product p{color:var(--muted);font-size:13px;flex:1}
+.product button{
+  margin-top:20px;background:none;border:0;text-align:left;
+  color:var(--teal);font-weight:800;font-size:12px;cursor:pointer
+}
+.product button:hover{color:white}
+.product.hidden{display:none}
+.innovation-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.innovation{
+  border:1px solid var(--line);border-radius:12px;padding:21px;
+  background:#101a2b;transition:.25s
+}
+.innovation:hover{transform:translateY(-5px);border-color:#579bff77}
+.innovation span{font-size:22px}
+.innovation h3{font-size:14px;margin:12px 0 5px}
+.innovation p{font-size:11px;color:var(--muted)}
+.cta-panel{
+  padding:65px 30px;text-align:center;border-radius:22px;
+  border:1px solid #55e0c144;
+  background:radial-gradient(ellipse at 50% 0%,#1c5b5c66,transparent 65%),#101b2c
+}
+.cta-panel h2{font-size:clamp(30px,4vw,46px);line-height:1.15;letter-spacing:-1.5px}
+.cta-panel p{color:var(--muted);max-width:600px;margin:15px auto 25px}
+.footer{padding:45px 0 25px;border-top:1px solid var(--line)}
+.footer-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.footer p{color:var(--muted);font-size:12px;max-width:440px;margin-top:10px}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:#bac7d8}
+.footer-links a:hover{color:var(--teal)}
+.copyright{border-top:1px solid var(--line);margin-top:30px;padding-top:20px;color:#71829b;font-size:11px}
+.copyright span{display:block;margin-top:6px}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.modal{
+  position:fixed;inset:0;z-index:50;background:#020711cc;
+  display:none;place-items:center;padding:20px;backdrop-filter:blur(8px)
+}
+.modal.open{display:grid}
+.modal-box{
+  width:min(500px,100%);background:#111d30;border:1px solid #55e0c155;
+  padding:30px;border-radius:17px;position:relative;animation:pop .25s ease
+}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.modal-close{position:absolute;right:17px;top:12px;background:none;border:0;color:white;font-size:25px;cursor:pointer}
+.modal-box h3{font-size:26px;margin:12px 0}
+.modal-box p{color:var(--muted);font-size:14px}
+.modal-label{color:var(--teal);font-size:10px;letter-spacing:2px;font-weight:800}
+@media(max-width:850px){
+ .hero-grid{grid-template-columns:1fr;text-align:center}
+ .hero-copy{margin:auto}.hero-actions{justify-content:center}
+ .visual{min-height:350px}.orbit{width:300px;height:300px}.orbit.two{width:235px;height:235px}
+ .about-grid{grid-template-columns:1fr}
+ .product-grid{grid-template-columns:repeat(2,1fr)}
+ .innovation-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:620px){
+ .nav-inner{min-height:68px}
+ .menu-btn{display:block}
+ .nav-cta{display:none}
+ .nav-links{
+   display:none;position:absolute;top:68px;left:0;right:0;
+   padding:22px 5%;background:#0b1424;border-bottom:1px solid var(--line);
+   flex-direction:column;align-items:flex-start;gap:19px
+ }
+ .nav-links.open{display:flex}
+ .hero{padding:75px 0 50px;min-height:auto}
+ .hero h1{letter-spacing:-2px}
+ section{padding:70px 0}
+ .product-grid{grid-template-columns:1fr}
+ .innovation-grid{grid-template-columns:1fr 1fr}
+ .float-tag{font-size:10px}
+ .tag-one{right:-5px}.tag-two{left:-5px}
+ .values{grid-template-columns:1fr 1fr}
+ .about-panel{padding:23px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+ .reveal{opacity:1;transform:none}
+}
+</style>
 </head>
 <body>
-  <nav>
-    <div class="logo">SolveIT<span>-AI</span></div>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<canvas id="particles"></canvas>
+<div class="site">
 
-  <header class="hero" id="home">
-    <div class="tag">INNOVATE. INSPIRE. SOLVE.</div>
-    <h1>Turning Ideas Into<br><span>Intelligent Solutions.</span></h1>
-    <p>We explore, design and develop practical digital products that solve real-world problems and create opportunities across Africa and beyond.</p>
-    <a class="btn" href="#solutions">Explore Our Innovation</a>
-  </header>
+<nav class="nav">
+ <div class="container nav-inner">
+  <a href="#home" class="logo">SolveIT<span>-AI</span></a>
+  <div class="nav-links" id="navLinks">
+   <a href="#home">Home</a><a href="#about">About</a>
+   <a href="#hub">Innovation Hub</a><a href="#sectors">Focus Areas</a>
+   <a href="#contact">Contact</a>
+  </div>
+  <a class="nav-cta" href="#hub">Explore Innovation ↗</a>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+ </div>
+</nav>
 
-  <section id="about" class="about">
-    <h2 class="section-title">Technology With Purpose</h2>
-    <p class="intro">SolveIT-AI is an innovation and digital product design company focused on making technology useful, accessible and meaningful. We turn promising ideas into practical digital experiences.</p>
-  </section>
+<header class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <div class="eyebrow"><span class="pulse"></span> African-rooted. Globally minded.</div>
+   <h1>Ideas deserve to become <span class="gradient-text">solutions.</span></h1>
+   <p class="hero-copy">We imagine, design and develop practical digital products that turn real-world challenges into opportunities. Technology should do more than impress. It should make a difference.</p>
+   <div class="hero-actions">
+    <a class="primary-btn" href="#hub">Discover our products <span>↗</span></a>
+    <a class="secondary-btn" href="#about">Get to know us</a>
+   </div>
+   <p class="hero-note">INNOVATE. INSPIRE. SOLVE.</p>
+  </div>
+  <div class="visual" aria-label="Animated SolveIT-AI technology graphic">
+   <div class="orbit"></div><div class="orbit two"></div>
+   <div class="core"><div class="core-inner"><strong>SI<span class="gradient-text">.AI</span></strong><small>INTELLIGENCE</small></div></div>
+   <div class="float-tag tag-one">✦ Ideas into impact</div>
+   <div class="float-tag tag-two">⌘ Built around real needs</div>
+   <div class="float-tag tag-three">◈ Innovation without borders</div>
+  </div>
+ </div>
+</header>
 
-  <section id="solutions">
-    <h2 class="section-title">Our Innovation Hub</h2>
-    <p class="intro">Discover the digital products and ideas we are exploring and building.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>Education</h3>
-        <p>Digital tools that improve learning, access to knowledge and educational opportunities.</p>
-      </div>
-      <div class="card">
-        <h3>Agriculture</h3>
-        <p>Practical technology for farmers, food systems and agricultural innovation.</p>
-      </div>
-      <div class="card">
-        <h3>Climate</h3>
-        <p>Digital solutions that support environmental awareness and climate action.</p>
-      </div>
-      <div class="card">
-        <h3>Governance & Peace</h3>
-        <p>Ideas that strengthen accountability, participation and peaceful communities.</p>
-      </div>
-    </div>
-  </section>
+<main>
+<section id="about">
+ <div class="container about-grid">
+  <div class="about-copy reveal">
+   <div class="kicker">Who we are</div>
+   <h3>Technology with purpose. Innovation with people at its centre.</h3>
+   <p>SolveIT-AI is an emerging technology and digital product innovation company exploring practical ways to use technology to address everyday challenges.</p>
+   <p>We bring ideas to life through product thinking, thoughtful design and accessible digital tools. Our focus is not technology for its own sake. It is what technology can help people and communities achieve.</p>
+  </div>
+  <div class="about-panel reveal">
+   <div class="kicker">Our approach</div>
+   <h3>Start with a problem. Build with purpose.</h3>
+   <p>We believe useful innovation begins by understanding people, the challenges they face and the opportunities around them.</p>
+   <div class="values">
+    <div class="value"><strong>01 / Understand</strong><small>Listen to real needs.</small></div>
+    <div class="value"><strong>02 / Imagine</strong><small>Explore better possibilities.</small></div>
+    <div class="value"><strong>03 / Create</strong><small>Design practical solutions.</small></div>
+    <div class="value"><strong>04 / Improve</strong><small>Learn from real users.</small></div>
+   </div>
+  </div>
+ </div>
+</section>
 
-  <section id="contact" class="about">
-    <h2 class="section-title">Let's Build Something Meaningful</h2>
-    <p class="intro">Have an idea, a problem to solve or an opportunity to collaborate? Let's explore it together.</p>
-    <a class="btn" href="mailto:hello@solveit-ai.com">Contact SolveIT-AI</a>
-  </section>
+<section class="hub" id="hub">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="kicker">The Innovation Hub</div>
+   <h2>Meet the ideas we're <span class="gradient-text">bringing to life.</span></h2>
+   <p>Explore our developing product portfolio. Select a product to learn about the problem it aims to address and the possibilities it is exploring.</p>
+  </div>
+  <div class="filters reveal" id="filters">
+   <button class="filter active" data-filter="all">All ideas</button>
+   <button class="filter" data-filter="web">Web & Business</button>
+   <button class="filter" data-filter="society">People & Society</button>
+   <button class="filter" data-filter="environment">Environment</button>
+  </div>
+  <div class="product-grid">
+   <article class="product reveal" data-category="web">
+    <div class="product-icon">↗</div><span class="category">Web & Business</span>
+    <h3>FLIGHTSEO</h3>
+    <p>An AI-assisted website SEO tool concept designed to help website owners identify issues, understand opportunities and make informed improvements.</p>
+    <button data-product="flightseo">Explore FLIGHTSEO ↗</button>
+   </article>
+   <article class="product reveal" data-category="web">
+    <div class="product-icon">✉</div><span class="category">Communication</span>
+    <h3>MailMind</h3>
+    <p>An intelligent email productivity concept exploring ways to make everyday communication and email workflows easier to manage.</p>
+    <button data-product="mailmind">Explore MailMind ↗</button>
+   </article>
+   <article class="product reveal" data-category="society">
+    <div class="product-icon">◈</div><span class="category">Peace & Security</span>
+    <h3>CohesionAI</h3>
+    <p>A peacebuilding concept exploring how digital guidance can support dialogue, conflict understanding and peaceful problem-solving.</p>
+    <button data-product="cohesionai">Explore CohesionAI ↗</button>
+   </article>
+   <article class="product reveal" data-category="environment">
+    <div class="product-icon">⌁</div><span class="category">Climate</span>
+    <h3>EcoSignal</h3>
+    <p>A climate information and environmental awareness concept designed to make useful climate insights easier to understand.</p>
+    <button data-product="ecosignal">Explore EcoSignal ↗</button>
+   </article>
+   <article class="product reveal" data-category="society">
+    <div class="product-icon">◎</div><span class="category">Civic Innovation</span>
+    <h3>CivilityAI</h3>
+    <p>A concept exploring more constructive digital conversations, respectful engagement and practical civic communication.</p>
+    <button data-product="civilityai">Explore CivilityAI ↗</button>
+   </article>
+   <article class="product reveal" data-category="web">
+    <div class="product-icon">✧</div><span class="category">Digital Marketplace</span>
+    <h3>Mi Wok</h3>
+    <p>A local services marketplace concept connecting people with service providers and opportunities within their communities.</p>
+    <button data-product="miwok">Explore Mi Wok ↗</button>
+   </article>
+  </div>
+ </div>
+</section>
 
-  <footer>
-    <p>© 2026 SolveIT-AI. Innovate. Inspire. Solve.</p>
-    <p>Developed by Ibrahim S. Bangura | Founder & CEO, Future Leaders Initiative SL | SolveIT-AI.</p>
-  </footer>
+<section id="sectors">
+ <div class="container">
+  <div class="section-head reveal">
+   <div class="kicker">Where we focus</div>
+   <h2>Innovation across the challenges that matter.</h2>
+   <p>We are interested in opportunities where thoughtful technology can make information, services and practical tools more accessible.</p>
+  </div>
+  <div class="innovation-grid">
+   <div class="innovation reveal"><span>🎓</span><h3>Education</h3><p>Learning, access and opportunity.</p></div>
+   <div class="innovation reveal"><span>🌱</span><h3>Agriculture</h3><p>Tools for farmers and food systems.</p></div>
+   <div class="innovation reveal"><span>🌍</span><h3>Climate</h3><p>Environmental information and action.</p></div>
+   <div class="innovation reveal"><span>🕊️</span><h3>Peace & Security</h3><p>Dialogue, safety and cohesion.</p></div>
+   <div class="innovation reveal"><span>⚖️</span><h3>Governance</h3><p>Participation and accountability.</p></div>
+   <div class="innovation reveal"><span>🌊</span><h3>Marine</h3><p>Ideas for healthier marine systems.</p></div>
+   <div class="innovation reveal"><span>🚀</span><h3>Mobility</h3><p>Smarter movement and access.</p></div>
+   <div class="innovation reveal"><span>🛡️</span><h3>Online Safety</h3><p>Safer and more responsible digital spaces.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="cta-panel reveal">
+   <div class="kicker">Let's explore what's possible</div>
+   <h2>Have a challenge worth <span class="gradient-text">solving?</span></h2>
+   <p>We welcome conversations with founders, organisations, innovators and partners who believe technology can create practical change.</p>
+   <a class="primary-btn" href="https://github.com/solveitai25-ibrahim/SolveIT-AI" target="_blank" rel="noopener">Explore our development ↗</a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="footer">
+ <div class="container">
+  <div class="footer-top">
+   <div><a href="#home" class="logo">SolveIT<span>-AI</span></a>
+    <p>Innovating with purpose. Building practical digital solutions for real-world challenges.</p>
+   </div>
+   <div class="footer-links">
+    <a href="#home">Home</a><a href="#about">About</a>
+    <a href="#hub">Innovation Hub</a><a href="#sectors">Focus Areas</a>
+    <a href="#contact">Contact</a>
+   </div>
+  </div>
+  <div class="copyright">
+   © <span id="year"></span> SolveIT-AI. All rights reserved.
+   <span>Developed by Ibrahim S. Bangura | Founder & CEO, Future Leaders Initiative SL | SolveIT-AI.</span>
+  </div>
+ </div>
+</footer>
+</div>
+
+<div class="modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="modal-box">
+  <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+  <span class="modal-label" id="modalCategory">PRODUCT EXPLORATION</span>
+  <h3 id="modalTitle">Product</h3>
+  <p id="modalDescription"></p>
+  <p style="margin-top:18px;font-size:11px;color:#55e0c1">This is a developing product concept. Features and availability may change as development progresses.</p>
+ </div>
+</div>
+
+<script>
+const products={
+ flightseo:{title:"FLIGHTSEO",category:"WEB & BUSINESS",description:"Give Your Website Wings. FLIGHTSEO is an AI-assisted SEO product designed to audit websites, explain issues, suggest relevant keywords and help owners make informed decisions about improvements."},
+ mailmind:{title:"MailMind",category:"COMMUNICATION",description:"MailMind explores intelligent email productivity, helping people organise communication and make everyday email tasks easier to manage."},
+ cohesionai:{title:"CohesionAI",category:"PEACE & SECURITY",description:"CohesionAI is a peacebuilding concept exploring guided dialogue, conflict understanding and practical approaches to peaceful problem-solving."},
+ ecosignal:{title:"EcoSignal",category:"CLIMATE",description:"EcoSignal explores accessible climate information and environmental awareness tools, with an initial interest in climate insights relevant to Sierra Leone."},
+ civilityai:{title:"CivilityAI",category:"CIVIC INNOVATION",description:"CivilityAI explores tools that can encourage constructive conversations, respectful engagement and healthier digital communication."},
+ miwok:{title:"Mi Wok",category:"DIGITAL MARKETPLACE",description:"Mi Wok is a local services marketplace concept intended to help people discover and connect with service providers in their communities."}
+};
+
+const modal=document.getElementById("productModal");
+document.querySelectorAll("[data-product]").forEach(button=>{
+ button.addEventListener("click",()=>{
+  const p=products[button.dataset.product];
+  if(!p)return;
+  document.getElementById("modalTitle").textContent=p.title;
+  document.getElementById("modalCategory").textContent=p.category;
+  document.getElementById("modalDescription").textContent=p.description;
+  modal.classList.add("open");
+ });
+});
+function closeModal(){modal.classList.remove("open")}
+document.getElementById("modalClose").addEventListener("click",closeModal);
+modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+
+document.querySelectorAll(".filter").forEach(button=>{
+ button.addEventListener("click",()=>{
+  document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  const category=button.dataset.filter;
+  document.querySelectorAll(".product").forEach(card=>{
+   card.classList.toggle("hidden",category!=="all"&&card.dataset.category!==category);
+  });
+ });
+});
+
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+menuBtn.addEventListener("click",()=>{
+ const open=navLinks.classList.toggle("open");
+ menuBtn.textContent=open?"×":"☰";
+ menuBtn.setAttribute("aria-expanded",String(open));
+});
+navLinks.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>{
+ navLinks.classList.remove("open");menuBtn.textContent="☰";
+ menuBtn.setAttribute("aria-expanded","false");
+}));
+
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("visible");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const canvas=document.getElementById("particles");
+const ctx=canvas.getContext("2d");
+let particles=[];
+function resize(){
+ canvas.width=innerWidth*devicePixelRatio;
+ canvas.height=innerHeight*devicePixelRatio;
+ ctx.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
+ particles=Array.from({length:Math.min(65,Math.floor(innerWidth/20))},()=>({
+  x:Math.random()*innerWidth,y:Math.random()*innerHeight,
+  vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+  r:Math.random()*1.5+.5
+ }));
+}
+function animate(){
+ ctx.clearRect(0,0,innerWidth,innerHeight);
+ particles.forEach((p,i)=>{
+  p.x+=p.vx;p.y+=p.vy;
+  if(p.x<0||p.x>innerWidth)p.vx*=-1;
+  if(p.y<0||p.y>innerHeight)p.vy*=-1;
+  ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+  ctx.fillStyle="#69dcca";ctx.fill();
+  for(let j=i+1;j<particles.length;j++){
+   const q=particles[j],dx=p.x-q.x,dy=p.y-q.y,d=Math.hypot(dx,dy);
+   if(d<105){
+    ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+    ctx.strokeStyle=`rgba(85,224,193,${.10*(1-d/105)})`;
+    ctx.lineWidth=.7;ctx.stroke();
+   }
+  }
+ });
+ if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches)requestAnimationFrame(animate);
+}
+resize();animate();addEventListener("resize",resize);
+</script>
 </body>
 </html>
